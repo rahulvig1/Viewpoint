@@ -996,7 +996,7 @@ module Viewpoint::EWS::SOAP
     end
 
     def attendee!(a)
-      wrap = Array.wrap(a)
+      wrap = a.to_a
       nbuild[NS_EWS_TYPES].Attendee {
         wrap.each do |item|
           if item[:mailbox]
