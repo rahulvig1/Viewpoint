@@ -871,6 +871,18 @@ module Viewpoint::EWS::SOAP
       nbuild[NS_EWS_TYPES].DaysOfWeek(day)
     end
 
+    def monthly_recurrence!(item)
+      nbuild[NS_EWS_TYPES].AbsoluteMonthlyRecurrence {
+        item.each_pair { |k, v|
+          self.send("#{k}!", v)
+        }
+      }
+    end
+
+    def day_of_month!(num)
+      nbuild[NS_EWS_TYPES].DayOfMonth(num)
+    end
+
     def interval!(num)
       nbuild[NS_EWS_TYPES].Interval(num)
     end
