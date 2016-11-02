@@ -867,6 +867,10 @@ module Viewpoint::EWS::SOAP
       }
     end
 
+    def days_of_week!(day)
+      nbuild[NS_EWS_TYPES].DaysOfWeek(day)
+    end
+
     def interval!(num)
       nbuild[NS_EWS_TYPES].Interval(num)
     end
